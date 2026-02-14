@@ -3,12 +3,14 @@ import asyncio
 import aiohttp
 import discord
 import json
+from dotenv import load_dotenv
 
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN", "PON_AQUI_TU_TOKEN")
-N8N_WEBHOOK_URL = os.getenv(
-    "N8N_WEBHOOK_URL",
-    "http://45.147.251.186:5678/webhook/discord-query"
-)
+load_dotenv()
+
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+print(DISCORD_TOKEN)
+N8N_WEBHOOK_URL = os.getenv("N8N_WEBHOOK_URL", "http://45.147.251.186:5678/webhook/discord-query")
+
 
 intents = discord.Intents.default()
 intents.message_content = True
